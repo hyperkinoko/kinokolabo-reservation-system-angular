@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kinokolabo-reserve": {
+      "hosting": {
+        "reservation-system-angular": [
+          "kinokolabo-reserve"
+        ]
+      }
+    }
+  }
+}
