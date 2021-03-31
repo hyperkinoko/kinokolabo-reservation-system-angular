@@ -16,6 +16,7 @@ import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/auth";
 import {AngularFireAuthGuardModule} from "@angular/fire/auth-guard";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { MembershipAgreementModalComponent } from './parts/modals/membership-agreement-modal/membership-agreement-modal.component';
+import { AuthPageHeaderComponent } from './pages/auth/auth-page-header/auth-page-header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MembershipAgreementModalComponent } from './parts/modals/membership-agr
     SignupPageComponent,
     ReservationListItemComponent,
     DatetimeJpPipe,
-    MembershipAgreementModalComponent
+    MembershipAgreementModalComponent,
+    AuthPageHeaderComponent
   ],
   imports: [
     BrowserModule,
