@@ -8,6 +8,7 @@ import { PasswordResetPageComponent } from './pages/auth/password-reset-page/pas
 import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
 import { ReservationListItemComponent } from './parts/reservation-list-item/reservation-list-item.component';
 import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
+import {MDBBootstrapModulesPro, MDBSpinningPreloader} from 'ng-uikit-pro-standard';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,12 @@ import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModulesPro.forRoot(),
   ],
-  providers: [],
+  providers: [
+    MDBSpinningPreloader,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
