@@ -9,6 +9,7 @@ import { SignupPageComponent } from './pages/auth/signup-page/signup-page.compon
 import { ReservationListItemComponent } from './parts/reservation-list-item/reservation-list-item.component';
 import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MDBBootstrapModulesPro, MDBSpinningPreloader} from 'ng-uikit-pro-standard';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModulesPro.forRoot(),
   ],
-  providers: [],
+  providers: [
+    MDBSpinningPreloader,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
