@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {MemberService} from '../../../shared/services';
 import {ToastService} from 'ng-uikit-pro-standard';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-password-reset-page',

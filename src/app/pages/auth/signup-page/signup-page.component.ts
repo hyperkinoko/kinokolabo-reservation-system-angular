@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {MemberService} from '../../../shared/services';
 import {MDBModalRef, MDBModalService, ToastService} from 'ng-uikit-pro-standard';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {MembershipAgreementModalComponent} from './membership-agreement-modal/membership-agreement-modal.component';
+import { MemberService } from 'src/app/services/member.service';
+import { MembershipAgreementModalComponent } from 'src/app/parts/modals/membership-agreement-modal/membership-agreement-modal.component';
+
 
 @Component({
   selector: 'app-signup-page',
