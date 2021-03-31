@@ -9,7 +9,7 @@ import { SignupPageComponent } from './pages/auth/signup-page/signup-page.compon
 import { ReservationListItemComponent } from './parts/reservation-list-item/reservation-list-item.component';
 import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MDBBootstrapModulesPro, MDBSpinningPreloader} from 'ng-uikit-pro-standard';
+import {MDBBootstrapModulesPro, MDBSpinningPreloader, ToastModule, WavesModule} from 'ng-uikit-pro-standard';
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/auth";
@@ -34,11 +34,13 @@ import { AuthPageHeaderComponent } from './pages/auth/auth-page-header/auth-page
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
     AngularFirestoreModule,
     MDBBootstrapModulesPro.forRoot(),
+    ToastModule.forRoot({opacity: 1}),
+    WavesModule,
   ],
   providers: [
     MDBSpinningPreloader,
