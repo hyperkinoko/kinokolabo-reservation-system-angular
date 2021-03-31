@@ -8,6 +8,7 @@ import { PasswordResetPageComponent } from './pages/auth/password-reset-page/pas
 import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
 import { ReservationListItemComponent } from './parts/reservation-list-item/reservation-list-item.component';
 import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { DatetimeJpPipe } from './pipes/datetime-jp.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
