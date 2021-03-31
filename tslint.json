@@ -83,7 +83,7 @@
       }
     },
     "typedef": [
-      true
+      false
     ],
     "typedef-whitespace": {
       "options": [
