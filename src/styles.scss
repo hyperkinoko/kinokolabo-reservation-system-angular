@@ -1,1 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
+
+$skins: () !default;
+$skins: map-merge((
+  "kinokolabo": (
+    'skin-primary-color': #d09683,
+    'skin-navbar': #73605b,
+    'skin-footer-color': #d09683,
+    'skin-accent': #d0c6b9,
+    'skin-flat': #aa5077,
+    'skin-sidenav-item': rgba(0, 0, 0, 0.4),
+    'skin-sidenav-item-hover': rgba(0, 0, 0, 0.4),
+    'skin-gradient-start': #812b5a,
+    'skin-gradient-end': #f28cc0,
+    'skin-mask-slight': rgba(152, 47, 88, 0.5),
+    'skin-mask-light': rgba(152, 47, 88, 0.65),
+    'skin-mask-strong': rgba(152, 47, 88, 0.8),
+    'skin-sn-child': #ffb0e6,
+    'skin-btn-primary': #363237,
+    'skin-btn-secondary': #b8191d,
+    'skin-btn-default': #535466,
+    'skin-text': #fff,
+    'skin-text-link': #73605b,
+    'skin-body-background': #d2d2d2
+  ),
+), $skins);
+
+@import '~ng-uikit-pro-standard/assets/scss/core/mixins';
+@import '~ng-uikit-pro-standard/assets/scss/core/colors';
+@import '~ng-uikit-pro-standard/assets/scss/core/variables';
+@import '~ng-uikit-pro-standard/assets/scss/core/variables-pro';
+@import '~ng-uikit-pro-standard/assets/scss/core/msc/skins-pro';
+@import '~ng-uikit-pro-standard/assets/scss/bootstrap/functions';
+@import '~ng-uikit-pro-standard/assets/scss/bootstrap/variables';
+
+html {
+  font-family: sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+}
+
+.auth-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@include media-breakpoint-down(sm) {
+  html {
+    font-size: 0.8rem;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  html {
+    font-size: 0.6rem;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+@include media-breakpoint-down(md) {
+  footer {
+    padding-bottom: 60px !important;
+  }
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.tab-content {
+  width: 100%;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+app-go-post-button {
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
+}
+
+//フォーム入力で画面上部に表示されるエラーメッセージにつけるclass
+.error {
+  color: $danger-color;
+  font-size: 0.9rem;
+}
+
+.tooltip {
+  width: 15rem;
+}
+
+@each $skin,
+$data in $skins {
+  .#{$skin}-skin {
+    // body background
+    background-color: map-get($data, skin-body-background);
+    min-height: calc(100vh - 300px);
+
+    a {
+      color: map-get($data, skin-text-link);
+    }
+
+    .accent-text {
+      color: map-get($data, skin-btn-secondary);
+    }
+  }
+}
