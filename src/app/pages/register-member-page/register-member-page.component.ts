@@ -5,13 +5,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { MemberService } from 'src/app/services/member.service';
 import { MembershipAgreementModalComponent } from 'src/app/parts/modals/membership-agreement-modal/membership-agreement-modal.component';
 
-
 @Component({
-  selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.scss']
+  selector: 'app-register-member-page',
+  templateUrl: './register-member-page.component.html',
+  styleUrls: ['./register-member-page.component.scss']
 })
-export class SignupPageComponent implements OnInit {
+export class RegisterMemberPageComponent implements OnInit {
   signUpErrorMessage: string;
   form: FormGroup;
 
@@ -26,13 +25,37 @@ export class SignupPageComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      email:            new FormControl(null, [Validators.required, Validators.email]),
-      password:         new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      passwordConfirm:  new FormControl(null, [Validators.required]),
-      termsAccept:      new FormControl(false, [Validators.requiredTrue])
+      parent:             new FormGroup({
+        name:             new FormGroup({
+          sei:            new FormControl('', [Validators.required]),
+          mei:            new FormControl('', [Validators.required]),
+        }),
+        nameRuby:         new FormGroup({
+          seiRuby:        new FormControl('', [Validators.required, Validators.pattern('^[ァ-ヶー　]+$')]),
+          meiRuby:        new FormControl('', [Validators.required, Validators.pattern('^[ァ-ヶー　]+$')]),
+        }),
+        prefCode:         new FormControl(0, [Validators.required]),
+        tel:              new FormControl('', [Validators.required, Validators.pattern('\d{2,4}-?\d{2,4}-?\d{3,4}')]),
+      }),
+      student:            new FormGroup({
+        name:             new FormGroup({
+          sei:            new FormControl('', [Validators.required]),
+          mei:            new FormControl('', [Validators.required]),
+        }),
+        nameRuby:         new FormGroup({
+          seiRuby:        new FormControl('', [Validators.required, Validators.pattern('^[ァ-ヶー　]+$')]),
+          meiRuby:        new FormControl('', [Validators.required, Validators.pattern('^[ァ-ヶー　]+$')]),
+        }),
+        birthday:         new FormGroup({
+          bdYear:         new FormControl(0, Validators.required),
+          bdMonth:        new FormControl(0, Validators.required),
+          bdDay:          new FormControl(0, Validators.required),
+        }),
+        learningUsage:    new FormControl(0, Validators.required)
+      })
     });
-
   }
+
 
   signUp(): void {
     if (this.form.get('password').value !== this.form.get('passwordConfirm').value) {
