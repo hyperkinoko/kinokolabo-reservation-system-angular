@@ -62,6 +62,7 @@
         <label for="password">パスワード</label>
         <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
           <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>
+          <span *ngIf="passwordInput.errors.minlength">パスワードは8文字以上です</span>
         </mdb-error>
         <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
       </div>
