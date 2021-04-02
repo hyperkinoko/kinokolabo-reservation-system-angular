@@ -2,9 +2,13 @@
 $skins: () !default;
 $skins: map-merge((
   "kinokolabo": (
+    // primary-colorとかcolor="primary"で使われる
     'skin-primary-color': #d09683,
+    // navbarの色
     'skin-navbar': #73605b,
+    // footerの色
     'skin-footer-color': #d09683,
+    // popupメニューとかの背景色っぽい
     'skin-accent': #d0c6b9,
     'skin-flat': #aa5077,
     'skin-sidenav-item': rgba(0, 0, 0, 0.4),
@@ -15,6 +19,7 @@ $skins: map-merge((
     'skin-mask-light': rgba(152, 47, 88, 0.65),
     'skin-mask-strong': rgba(152, 47, 88, 0.8),
     'skin-sn-child': #ffb0e6,
+    // ボタンに限り、この色がprimaryになる color="primary"
     'skin-btn-primary': #363237,
     'skin-btn-secondary': #b8191d,
     'skin-btn-default': #535466,
