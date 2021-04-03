@@ -1,1 +1,16 @@
 {{reservation.actualStart | datetimeJp}}
+<div class="container">
+  <mdb-card>
+    <mdb-card-body>
+
+      <mdb-card-title>
+        <h4 class="mt-2 ml-3">{{reservation.start | datetimeJp}} - {{reservation.end | timeJp}}</h4>
+      </mdb-card-title>
+
+      <mdb-card-text class="ml-3">
+        <a href="https://momentjs.com/" class="p-1">https://momentjs.com/</a>
+      </mdb-card-text>
+
+    </mdb-card-body>
+  </mdb-card>
+</div>

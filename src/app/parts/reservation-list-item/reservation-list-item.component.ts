@@ -18,11 +18,11 @@ export class ReservationListItemComponent implements OnInit {
     this.reservation = {
       actualEnd: 0,
       actualStart: +moment(),
-      end: 0,
+      end: +moment().add(1, 'hour'),
       id: '',
       meetingUrl: '',
       price: 0,
-      start: 0,
+      start: +moment(),
       studentId: ''
     };
   }

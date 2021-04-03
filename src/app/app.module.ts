@@ -18,6 +18,7 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { MembershipAgreementModalComponent } from './parts/modals/membership-agreement-modal/membership-agreement-modal.component';
 import { AuthPageHeaderComponent } from './pages/auth/auth-page-header/auth-page-header.component';
 import { RegisterMemberPageComponent } from './pages/register-member-page/register-member-page.component';
+import { TimeJpPipe } from './pipes/time-jp.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RegisterMemberPageComponent } from './pages/register-member-page/regist
     DatetimeJpPipe,
     MembershipAgreementModalComponent,
     AuthPageHeaderComponent,
-    RegisterMemberPageComponent
+    RegisterMemberPageComponent,
+    TimeJpPipe
   ],
   imports: [
     BrowserModule,

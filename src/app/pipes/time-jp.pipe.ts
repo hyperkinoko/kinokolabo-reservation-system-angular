@@ -2,12 +2,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 
 @Pipe({
-  name: 'datetimeJp'
+  name: 'timeJp'
 })
-export class DatetimeJpPipe implements PipeTransform {
+export class TimeJpPipe implements PipeTransform {
 
   transform(value: number): string {
     moment.locale('ja');
-    return moment(value).format('llll');
+    return moment(value).format('LT');
   }
+
 }
