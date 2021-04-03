@@ -49,7 +49,7 @@ export class RegisterMemberPageComponent implements OnInit {
           bdMonth:        new FormControl(0, Validators.required),
           bdDay:          new FormControl(0, Validators.required),
         }),
-        learningUsage:    new FormArray(null, Validators.required)
+        // learningUsage:    new FormArray(null, Validators.required)
       })
     });
   }
@@ -76,7 +76,7 @@ export class RegisterMemberPageComponent implements OnInit {
     }
   }
 
-  get groupParent(): FormGroup { return this.form.get('parent') as FormGroup; }
+  get groupParent(): FormGroup { return this.form.get('hoge') as FormGroup; }
   get groupParentName(): FormGroup { return this.groupParent.get('name') as FormGroup; }
   get inputParentNameSei(): FormControl { return this.groupParentName.get('sei') as FormControl; }
   get inputParentNameMei(): FormControl { return this.groupParentName.get('mei') as FormControl; }
@@ -96,5 +96,5 @@ export class RegisterMemberPageComponent implements OnInit {
   get inputStudentBirthdayYear(): FormControl {return this.groupStudentBirthday.get('bdYear') as FormControl; }
   get inputStudentBirthdayMonth(): FormControl {return this.groupStudentBirthday.get('bdMonth') as FormControl; }
   get inputStudentBirthdayDay(): FormControl {return this.groupStudentBirthday.get('bdDay') as FormControl; }
-  get inputStudentLearningUsage(): FormArray {return this.groupStudent.get('learningUsage') as FormArray; }
+  // get inputStudentLearningUsage(): FormArray {return this.groupStudent.get('learningUsage') as FormArray; }
 }
