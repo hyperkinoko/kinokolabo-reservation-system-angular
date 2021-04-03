@@ -11,10 +11,8 @@ import { MembershipAgreementModalComponent } from 'src/app/parts/modals/membersh
   styleUrls: ['./register-member-page.component.scss']
 })
 export class RegisterMemberPageComponent implements OnInit {
-  signUpErrorMessage: string;
+  registerErrorMessage: string;
   form: FormGroup;
-
-  basicModal: MDBModalRef;
 
   constructor(
     private router: Router,
@@ -59,19 +57,19 @@ export class RegisterMemberPageComponent implements OnInit {
 
   signUp(): void {
     if (this.form.get('password').value !== this.form.get('passwordConfirm').value) {
-      this.signUpErrorMessage = 'パスワードが異なります';
+      this.registerErrorMessage = 'パスワードが異なります';
       return;
     }
 
     if (this.form.valid){
       this.memberService.signup(this.form.get('email').value, this.form.get('password').value, this.form.get('displayName').value)
         .then(() => {
-          this.signUpErrorMessage = null;
+          this.registerErrorMessage = null;
           this.toast.success('送られたメールをご確認ください', 'メールを送信しました');
           this.router.navigate(['login']);
         })
         .catch(() => {
-          this.signUpErrorMessage = 'サインアップに失敗しました。';
+          this.registerErrorMessage = 'サインアップに失敗しました。';
           this.form.setValue({password: null});
           this.form.setValue({passwordConfirm: null});
         });
@@ -99,8 +97,4 @@ export class RegisterMemberPageComponent implements OnInit {
   get inputStudentBirthdayMonth(): FormControl {return this.groupStudentBirthday.get('bdMonth') as FormControl; }
   get inputStudentBirthdayDay(): FormControl {return this.groupStudentBirthday.get('bdDay') as FormControl; }
   get inputStudentLearningUsage(): FormArray {return this.groupStudent.get('learningUsage') as FormArray; }
-
-  openMembershipAgreementModal() {
-    this.basicModal = this.modalService.show(MembershipAgreementModalComponent, {scroll: true});
-  }
 }
