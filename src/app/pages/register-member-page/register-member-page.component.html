@@ -123,10 +123,10 @@
           mdbInput
           mdbValidate
         >
-        <label for="same-as">受講生が申込者本人である場合はチェック</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-        </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
+<!--        <label for="same-as">受講生が申込者本人である場合はチェック</label>-->
+<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+<!--        </mdb-error>-->
+<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
       </div>
       <!-- 受講生 姓 -->
       <div class="md-form">
@@ -243,53 +243,53 @@
         <mdb-success *ngIf="inputStudentBirthdayDay.valid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)"></mdb-success>
       </div>
       <!-- アポロン -->
-      <div class="md-form">
-        <input
-          type="checkbox"
-          id="apollon"
-          class="form-control"
-          formControlName="apollon"
-          mdbInput
-          mdbValidate
-        >
-        <label for="apollon">アポロン</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
-      </div>
-      <!-- プロゲート -->
-      <div class="md-form">
-        <input
-          type="checkbox"
-          id="progate"
-          class="form-control"
-          formControlName="progate"
-          mdbInput
-          mdbValidate
-        >
-        <label for="progate">Progate</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
-      </div>
-      <!-- その他 -->
-      <div class="md-form">
-        <input
-          type="checkbox"
-          id="other"
-          class="form-control"
-          formControlName="other"
-          mdbInput
-          mdbValidate
-        >
-        <label for="other">その他</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
-      </div>
+<!--      <div class="md-form">-->
+<!--        <input-->
+<!--          type="checkbox"-->
+<!--          id="apollon"-->
+<!--          class="form-control"-->
+<!--          formControlName="apollon"-->
+<!--          mdbInput-->
+<!--          mdbValidate-->
+<!--        >-->
+<!--        <label for="apollon">アポロン</label>-->
+<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+<!--        </mdb-error>-->
+<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; プロゲート &ndash;&gt;-->
+<!--      <div class="md-form">-->
+<!--        <input-->
+<!--          type="checkbox"-->
+<!--          id="progate"-->
+<!--          class="form-control"-->
+<!--          formControlName="progate"-->
+<!--          mdbInput-->
+<!--          mdbValidate-->
+<!--        >-->
+<!--        <label for="progate">Progate</label>-->
+<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+<!--        </mdb-error>-->
+<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; その他 &ndash;&gt;-->
+<!--      <div class="md-form">-->
+<!--        <input-->
+<!--          type="checkbox"-->
+<!--          id="other"-->
+<!--          class="form-control"-->
+<!--          formControlName="other"-->
+<!--          mdbInput-->
+<!--          mdbValidate-->
+<!--        >-->
+<!--        <label for="other">その他</label>-->
+<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+<!--        </mdb-error>-->
+<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+<!--      </div>-->
 
       <!-- Submit button -->
       <button
