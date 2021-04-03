@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {MDBModalRef, MDBModalService, ToastService} from 'ng-uikit-pro-standard';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MemberService } from 'src/app/services/member.service';
 import { MembershipAgreementModalComponent } from 'src/app/parts/modals/membership-agreement-modal/membership-agreement-modal.component';
 
@@ -51,7 +51,7 @@ export class RegisterMemberPageComponent implements OnInit {
           bdMonth:        new FormControl(0, Validators.required),
           bdDay:          new FormControl(0, Validators.required),
         }),
-        learningUsage:    new FormControl(0, Validators.required)
+        learningUsage:    new FormArray(null, Validators.required)
       })
     });
   }
@@ -80,11 +80,25 @@ export class RegisterMemberPageComponent implements OnInit {
 
   get groupParent(): FormGroup { return this.form.get('parent') as FormGroup; }
   get groupParentName(): FormGroup { return this.groupParent.get('name') as FormGroup; }
+  get inputParentNameSei(): FormControl { return this.groupParentName.get('sei') as FormControl; }
+  get inputParentNameMei(): FormControl { return this.groupParentName.get('mei') as FormControl; }
   get groupParentNameRuby(): FormGroup { return this.groupParent.get('nameRuby') as FormGroup; }
+  get inputParentNameRubySei(): FormControl { return this.groupParentNameRuby.get('sei') as FormControl; }
+  get inputParentNameRubyMei(): FormControl { return this.groupParentNameRuby.get('mei') as FormControl; }
+  get inputPrefCode(): FormControl { return this.groupParent.get('pref') as FormControl; }
+  get inputTel(): FormControl { return this.groupParent.get('tel') as FormControl; }
   get groupStudent(): FormGroup { return this.form.get('student') as FormGroup; }
   get groupStudentName(): FormGroup { return this.groupStudent.get('name') as FormGroup; }
+  get inputStudentNameSei(): FormControl { return this.groupStudentName.get('sei') as FormControl; }
+  get inputStudentNameMei(): FormControl { return this.groupStudentName.get('mei') as FormControl; }
   get groupStudentNameRuby(): FormGroup { return this.groupStudent.get('nameRuby') as FormGroup; }
+  get inputStudentNameRubySei(): FormControl { return this.groupStudentNameRuby.get('sei') as FormControl; }
+  get inputStudentNameRubyMei(): FormControl { return this.groupStudentNameRuby.get('mei') as FormControl; }
   get groupStudentBirthday(): FormGroup { return this.groupStudent.get('birthday') as FormGroup; }
+  get inputStudentBirthdayYear(): FormControl {return this.groupStudentBirthday.get('bdYear') as FormControl; }
+  get inputStudentBirthdayMonth(): FormControl {return this.groupStudentBirthday.get('bdMonth') as FormControl; }
+  get inputStudentBirthdayDay(): FormControl {return this.groupStudentBirthday.get('bdDay') as FormControl; }
+  get inputStudentLearningUsage(): FormArray {return this.groupStudent.get('learningUsage') as FormArray; }
 
   openMembershipAgreementModal() {
     this.basicModal = this.modalService.show(MembershipAgreementModalComponent, {scroll: true});

@@ -25,7 +25,7 @@
           mdbValidate
         >
         <label for="sei">姓(申込者)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+        <mdb-error *ngIf="inputParentNameSei.invalid && (.dirty || emailInput.touched)">
           <span *ngIf="emailInput.errors.required">入力必須です</span>
         </mdb-error>
         <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
