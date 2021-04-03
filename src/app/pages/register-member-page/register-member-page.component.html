@@ -11,296 +11,355 @@
     <ng-container *ngIf="registerErrorMessage">
       <p class="error mb-5">{{registerErrorMessage}}</p>
     </ng-container>
-    <!-- Form -->
-    <form class="text-center" [formGroup]="form" (ngSubmit)="signUp()">
 
-      <!-- 保護者 姓 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="sei"
-          class="form-control"
-          formControlName="sei"
-          mdbInput
-          mdbValidate
-        >
-        <label for="sei">姓(申込者)</label>
-        <mdb-error *ngIf="inputParentNameSei.invalid && (inputParentNameSei.dirty || inputParentNameSei.touched)">
-          <span *ngIf="inputParentNameSei.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputParentNameSei.valid && (inputParentNameSei.dirty || inputParentNameSei.touched)"></mdb-success>
-      </div>
-      <!-- 保護者 名 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="mei"
-          class="form-control"
-          formControlName="mei"
-          mdbInput
-          mdbValidate
-        >
-        <label for="mei">名(申込者)</label>
-        <mdb-error *ngIf="inputParentNameMei.invalid && (inputParentNameMei.dirty || inputParentNameMei.touched)">
-          <span *ngIf="inputParentNameMei.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputParentNameMei.valid && (inputParentNameMei.dirty || inputParentNameMei.touched)"></mdb-success>
-      </div>
-      <!-- 保護者 姓カナ -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="sei-ruby"
-          class="form-control"
-          formControlName="seiRuby"
-          mdbInput
-          mdbValidate
-        >
-        <label for="sei-ruby">セイ(申込者)</label>
-        <mdb-error *ngIf="inputParentNameRubySei.invalid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)">
-          <span *ngIf="inputParentNameRubySei.errors.required">入力必須です</span>
-          <span *ngIf="inputParentNameRubySei.errors.pattern">カタカナで入力してください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputParentNameRubySei.valid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)"></mdb-success>
-      </div>
-      <!-- 保護者 名カナ -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="mei-ruby"
-          class="form-control"
-          formControlName="meiRuby"
-          mdbInput
-          mdbValidate
-        >
-        <label for="mei-ruby">メイ(申込者)</label>
-        <mdb-error *ngIf="inputParentNameRubyMei.invalid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)">
-          <span *ngIf="inputParentNameRubyMei.errors.required">入力必須です</span>
-          <span *ngIf="inputParentNameRubyMei.errors.pattern">カタカナで入力してください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputParentNameRubyMei.valid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)"></mdb-success>
-      </div>
-      <!-- 都道府県(セレクトボックス) -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="prefCode"
-          class="form-control"
-          formControlName="prefCode"
-          mdbInput
-          mdbValidate
-        >
-        <label for="prefCode">都道府県</label>
-        <mdb-error *ngIf="inputPrefCode.invalid && (inputPrefCode.dirty || inputPrefCode.touched)">
-          <span *ngIf="inputPrefCode.errors.required">都道府県を選んでください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputPrefCode.valid && (inputPrefCode.dirty || inputPrefCode.touched)"></mdb-success>
-      </div>
-      <!-- 電話番号 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="tel"
-          class="form-control"
-          formControlName="tel"
-          mdbInput
-          mdbValidate
-        >
-        <label for="tel">電話番号</label>
-        <mdb-error *ngIf="inputTel.invalid && (inputTel.dirty || inputTel.touched)">
-          <span *ngIf="inputTel.errors.required">入力必須です</span>
-          <span *ngIf="inputTel.errors.pattern">電話番号を入力してください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputTel.valid && (inputTel.dirty || inputTel.touched)"></mdb-success>
-      </div>
-      <!-- 受講生が申込者本人(チェックボックス) -->
-      <div class="md-form">
-        <input
-          type="checkbox"
-          id="same-as"
-          class="form-control"
-          formControlName="sameAs"
-          mdbInput
-          mdbValidate
-        >
-<!--        <label for="same-as">受講生が申込者本人である場合はチェック</label>-->
-<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
-<!--        </mdb-error>-->
-<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
-      </div>
-      <!-- 受講生 姓 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="st-sei"
-          class="form-control"
-          formControlName="stSei"
-          mdbInput
-          mdbValidate
-        >
-        <label for="st-sei">姓(受講生)</label>
-        <mdb-error *ngIf="inputStudentNameSei.invalid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)">
-          <span *ngIf="inputStudentNameSei.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentNameSei.valid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)"></mdb-success>
-      </div>
-      <!-- 受講生 名 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="st-mei"
-          class="form-control"
-          formControlName="stMei"
-          mdbInput
-          mdbValidate
-        >
-        <label for="st-mei">名(受講生)</label>
-        <mdb-error *ngIf="inputStudentNameMei.invalid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)">
-          <span *ngIf="inputStudentNameMei.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentNameMei.valid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)"></mdb-success>
-      </div>
-      <!-- 受講生 姓カナ -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="st-sei-ruby"
-          class="form-control"
-          formControlName="stSeiRuby"
-          mdbInput
-          mdbValidate
-        >
-        <label for="st-sei-ruby">セイ(受講生)</label>
-        <mdb-error *ngIf="inputStudentNameRubySei.invalid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)">
-          <span *ngIf="inputStudentNameRubySei.errors.required">入力必須です</span>
-          <span *ngIf="inputStudentNameRubySei.errors.pattern">カタカナで入力してください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentNameRubySei.valid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)"></mdb-success>
-      </div>
-      <!-- 受講生 名カナ -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="st-mei-ruby"
-          class="form-control"
-          formControlName="stMeiRuby"
-          mdbInput
-          mdbValidate
-        >
-        <label for="st-mei-ruby">メイ(受講生)</label>
-        <mdb-error *ngIf="inputStudentNameRubyMei.invalid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)">
-          <span *ngIf="inputStudentNameRubyMei.errors.required">入力必須です</span>
-          <span *ngIf="inputStudentNameRubyMei.errors.pattern">カタカナで入力してください</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentNameRubyMei.valid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)"></mdb-success>
-      </div>
-      <!-- 生年月日 年 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="bd-year"
-          class="form-control"
-          formControlName="bdYear"
-          mdbInput
-          mdbValidate
-        >
-        <label for="bd-year">年</label>
-        <mdb-error *ngIf="inputStudentBirthdayYear.invalid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)">
-          <span *ngIf="inputStudentBirthdayYear.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentBirthdayYear.valid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)"></mdb-success>
-      </div>
-      <!-- 生年月日 月 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="bd-month"
-          class="form-control"
-          formControlName="bdMonth"
-          mdbInput
-          mdbValidate
-        >
-        <label for="bd-month">月</label>
-        <mdb-error *ngIf="inputStudentBirthdayMonth.invalid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)">
-          <span *ngIf="inputStudentBirthdayMonth.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentBirthdayMonth.valid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)"></mdb-success>
-      </div>
-      <!-- 生年月日 日 -->
-      <div class="md-form">
-        <input
-          type="text"
-          id="bd-day"
-          class="form-control"
-          formControlName="bdDay"
-          mdbInput
-          mdbValidate
-        >
-        <label for="bd-day">日</label>
-        <mdb-error *ngIf="inputStudentBirthdayDay.invalid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)">
-          <span *ngIf="inputStudentBirthdayDay.errors.required">入力必須です</span>
-        </mdb-error>
-        <mdb-success *ngIf="inputStudentBirthdayDay.valid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)"></mdb-success>
-      </div>
-      <!-- アポロン -->
-<!--      <div class="md-form">-->
-<!--        <input-->
-<!--          type="checkbox"-->
-<!--          id="apollon"-->
-<!--          class="form-control"-->
-<!--          formControlName="apollon"-->
-<!--          mdbInput-->
-<!--          mdbValidate-->
-<!--        >-->
-<!--        <label for="apollon">アポロン</label>-->
-<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
-<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
-<!--        </mdb-error>-->
-<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; プロゲート &ndash;&gt;-->
-<!--      <div class="md-form">-->
-<!--        <input-->
-<!--          type="checkbox"-->
-<!--          id="progate"-->
-<!--          class="form-control"-->
-<!--          formControlName="progate"-->
-<!--          mdbInput-->
-<!--          mdbValidate-->
-<!--        >-->
-<!--        <label for="progate">Progate</label>-->
-<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
-<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
-<!--        </mdb-error>-->
-<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; その他 &ndash;&gt;-->
-<!--      <div class="md-form">-->
-<!--        <input-->
-<!--          type="checkbox"-->
-<!--          id="other"-->
-<!--          class="form-control"-->
-<!--          formControlName="other"-->
-<!--          mdbInput-->
-<!--          mdbValidate-->
-<!--        >-->
-<!--        <label for="other">その他</label>-->
-<!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
-<!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
-<!--        </mdb-error>-->
-<!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
-<!--      </div>-->
+    <mdb-stepper #stepper [vertical]="true">
+      <!-- Form -->
+      <form class="text-center" [formGroup]="form" (ngSubmit)="signUp()">
+        <mdb-step name="管理者の情報" label="入力済み">
+          <div [formGroup]="groupParent">
+            <div class="md-form input-group" [formGroup]="groupParentName">
+              <div class="input-group-prepend">
+                <span class="input-group-text md-addon">お名前</span>
+              </div>
+              <!-- 保護者 姓 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="sei"
+                  class="form-control"
+                  formControlName="sei"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="sei">姓</label>
+                <mdb-error
+                  *ngIf="inputParentNameSei.invalid && (inputParentNameSei.dirty || inputParentNameSei.touched)">
+                  <span *ngIf="inputParentNameSei.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputParentNameSei.valid && (inputParentNameSei.dirty || inputParentNameSei.touched)"></mdb-success>
+              </div>
+              <!-- 保護者 名 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="mei"
+                  class="form-control"
+                  formControlName="mei"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="mei">名</label>
+                <mdb-error
+                  *ngIf="inputParentNameMei.invalid && (inputParentNameMei.dirty || inputParentNameMei.touched)">
+                  <span *ngIf="inputParentNameMei.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputParentNameMei.valid && (inputParentNameMei.dirty || inputParentNameMei.touched)"></mdb-success>
+              </div>
+            </div>
+            <div class="md-form input-group" [formGroup]="groupParentNameRuby">
+              <div class="input-group-prepend">
+                <span class="input-group-text md-addon">フリガナ</span>
+              </div>
+              <!-- 保護者 姓カナ -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="sei-ruby"
+                  class="form-control"
+                  formControlName="seiRuby"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="sei-ruby">セイ</label>
+                <mdb-error
+                  *ngIf="inputParentNameRubySei.invalid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)">
+                  <span *ngIf="inputParentNameRubySei.errors.required">入力必須です</span>
+                  <span *ngIf="inputParentNameRubySei.errors.pattern">カタカナで入力してください</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputParentNameRubySei.valid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)"></mdb-success>
+              </div>
+              <!-- 保護者 名カナ -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="mei-ruby"
+                  class="form-control"
+                  formControlName="meiRuby"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="mei-ruby">メイ</label>
+                <mdb-error
+                  *ngIf="inputParentNameRubyMei.invalid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)">
+                  <span *ngIf="inputParentNameRubyMei.errors.required">入力必須です</span>
+                  <span *ngIf="inputParentNameRubyMei.errors.pattern">カタカナで入力してください</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputParentNameRubyMei.valid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)"></mdb-success>
+              </div>
+            </div>
+            <!-- 都道府県(セレクトボックス) -->
+            <div class="md-form">
+              <input
+                type="text"
+                id="prefCode"
+                class="form-control"
+                formControlName="prefCode"
+                mdbInput
+                mdbValidate
+              >
+              <label for="prefCode">都道府県</label>
+              <mdb-error *ngIf="inputPrefCode.invalid && (inputPrefCode.dirty || inputPrefCode.touched)">
+                <span *ngIf="inputPrefCode.errors.required">都道府県を選んでください</span>
+              </mdb-error>
+              <mdb-success *ngIf="inputPrefCode.valid && (inputPrefCode.dirty || inputPrefCode.touched)"></mdb-success>
+            </div>
+            <!-- 電話番号 -->
+            <div class="md-form">
+              <input
+                type="text"
+                id="tel"
+                class="form-control"
+                formControlName="tel"
+                mdbInput
+                mdbValidate
+              >
+              <label for="tel">電話番号</label>
+              <mdb-error *ngIf="inputTel.invalid && (inputTel.dirty || inputTel.touched)">
+                <span *ngIf="inputTel.errors.required">入力必須です</span>
+                <span *ngIf="inputTel.errors.pattern">電話番号を入力してください</span>
+              </mdb-error>
+              <mdb-success *ngIf="inputTel.valid && (inputTel.dirty || inputTel.touched)"></mdb-success>
+            </div>
+          </div>
+        </mdb-step>
 
-      <!-- Submit button -->
-      <button
-        mdbBtn
-        color="primary"
-        block="true"
-        class="mt-5 mb-4 waves-effect z-depth-0"
-        mdbWavesEffect
-        type="submit"
-        [disabled]="form.invalid"
-      >保存</button>
-    </form>
+        <mdb-step name="受講者の情報" label="入力済み">
+          <div [formGroup]="groupStudent">
+            <!-- 受講生が申込者本人(チェックボックス) -->
+            <div class="md-form">
+              <input
+                type="checkbox"
+                id="same-as"
+                class="form-control"
+                formControlName="sameAs"
+                mdbInput
+                mdbValidate
+              >
+              <!--        <label for="same-as">受講生が申込者本人である場合はチェック</label>-->
+              <!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+              <!--        </mdb-error>-->
+              <!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+            </div>
+            <div class="md-form input-group" [formGroup]="groupStudentName">
+              <div class="input-group-prepend">
+                <span class="input-group-text md-addon">受講生のお名前</span>
+              </div>
+              <!-- 受講生 姓 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="st-sei"
+                  class="form-control"
+                  formControlName="stSei"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="st-sei">姓(受講生)</label>
+                <mdb-error
+                  *ngIf="inputStudentNameSei.invalid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)">
+                  <span *ngIf="inputStudentNameSei.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentNameSei.valid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)"></mdb-success>
+              </div>
+              <!-- 受講生 名 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="st-mei"
+                  class="form-control"
+                  formControlName="stMei"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="st-mei">名(受講生)</label>
+                <mdb-error
+                  *ngIf="inputStudentNameMei.invalid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)">
+                  <span *ngIf="inputStudentNameMei.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentNameMei.valid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)"></mdb-success>
+              </div>
+            </div>
+            <div class="md-form input-group" [formGroup]="groupStudentNameRuby">
+              <div class="input-group-prepend">
+                <span class="input-group-text md-addon">フリガナ</span>
+              </div>
+              <!-- 受講生 姓カナ -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="st-sei-ruby"
+                  class="form-control"
+                  formControlName="stSeiRuby"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="st-sei-ruby">セイ(受講生)</label>
+                <mdb-error
+                  *ngIf="inputStudentNameRubySei.invalid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)">
+                  <span *ngIf="inputStudentNameRubySei.errors.required">入力必須です</span>
+                  <span *ngIf="inputStudentNameRubySei.errors.pattern">カタカナで入力してください</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentNameRubySei.valid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)"></mdb-success>
+              </div>
+              <!-- 受講生 名カナ -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="st-mei-ruby"
+                  class="form-control"
+                  formControlName="stMeiRuby"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="st-mei-ruby">メイ(受講生)</label>
+                <mdb-error
+                  *ngIf="inputStudentNameRubyMei.invalid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)">
+                  <span *ngIf="inputStudentNameRubyMei.errors.required">入力必須です</span>
+                  <span *ngIf="inputStudentNameRubyMei.errors.pattern">カタカナで入力してください</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentNameRubyMei.valid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)"></mdb-success>
+              </div>
+            </div>
+            <div class="md-form input-group" [formGroup]="groupStudentBirthday">
+              <div class="input-group-prepend">
+                <span class="input-group-text md-addon">生年月日</span>
+              </div>
+              <!-- 生年月日 年 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="bd-year"
+                  class="form-control"
+                  formControlName="bdYear"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="bd-year">年</label>
+                <mdb-error
+                  *ngIf="inputStudentBirthdayYear.invalid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)">
+                  <span *ngIf="inputStudentBirthdayYear.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentBirthdayYear.valid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)"></mdb-success>
+              </div>
+              <!-- 生年月日 月 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="bd-month"
+                  class="form-control"
+                  formControlName="bdMonth"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="bd-month">月</label>
+                <mdb-error
+                  *ngIf="inputStudentBirthdayMonth.invalid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)">
+                  <span *ngIf="inputStudentBirthdayMonth.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentBirthdayMonth.valid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)"></mdb-success>
+              </div>
+              <!-- 生年月日 日 -->
+              <div class="md-form">
+                <input
+                  type="text"
+                  id="bd-day"
+                  class="form-control"
+                  formControlName="bdDay"
+                  mdbInput
+                  mdbValidate
+                >
+                <label for="bd-day">日</label>
+                <mdb-error
+                  *ngIf="inputStudentBirthdayDay.invalid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)">
+                  <span *ngIf="inputStudentBirthdayDay.errors.required">入力必須です</span>
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputStudentBirthdayDay.valid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)"></mdb-success>
+              </div>
+            </div>
+            <!-- アポロン -->
+            <!--      <div class="md-form">-->
+            <!--        <input-->
+            <!--          type="checkbox"-->
+            <!--          id="apollon"-->
+            <!--          class="form-control"-->
+            <!--          formControlName="apollon"-->
+            <!--          mdbInput-->
+            <!--          mdbValidate-->
+            <!--        >-->
+            <!--        <label for="apollon">アポロン</label>-->
+            <!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+            <!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+            <!--        </mdb-error>-->
+            <!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+            <!--      </div>-->
+            <!--      &lt;!&ndash; プロゲート &ndash;&gt;-->
+            <!--      <div class="md-form">-->
+            <!--        <input-->
+            <!--          type="checkbox"-->
+            <!--          id="progate"-->
+            <!--          class="form-control"-->
+            <!--          formControlName="progate"-->
+            <!--          mdbInput-->
+            <!--          mdbValidate-->
+            <!--        >-->
+            <!--        <label for="progate">Progate</label>-->
+            <!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+            <!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+            <!--        </mdb-error>-->
+            <!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+            <!--      </div>-->
+            <!--      &lt;!&ndash; その他 &ndash;&gt;-->
+            <!--      <div class="md-form">-->
+            <!--        <input-->
+            <!--          type="checkbox"-->
+            <!--          id="other"-->
+            <!--          class="form-control"-->
+            <!--          formControlName="other"-->
+            <!--          mdbInput-->
+            <!--          mdbValidate-->
+            <!--        >-->
+            <!--        <label for="other">その他</label>-->
+            <!--        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">-->
+            <!--          <span *ngIf="passwordInput.errors.required">パスワードは入力必須です</span>-->
+            <!--        </mdb-error>-->
+            <!--        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>-->
+            <!--      </div>-->
+
+            <!-- Submit button -->
+          </div>
+          <button
+            mdbBtn
+            color="primary"
+            block="true"
+            class="mt-5 mb-4 waves-effect z-depth-0"
+            mdbWavesEffect
+            type="submit"
+            [disabled]="form.invalid"
+          >保存
+          </button>
+        </mdb-step>
+      </form>
+    </mdb-stepper>
   </mdb-card-body>
 </mdb-card>
