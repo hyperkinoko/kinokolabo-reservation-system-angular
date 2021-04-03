@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {Reservation} from '../../models/reservation';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reservation-list-item',
@@ -16,7 +17,7 @@ export class ReservationListItemComponent implements OnInit {
     // ダミーデータを入れる
     this.reservation = {
       actualEnd: 0,
-      actualStart: 0,
+      actualStart: +moment(),
       end: 0,
       id: '',
       meetingUrl: '',
