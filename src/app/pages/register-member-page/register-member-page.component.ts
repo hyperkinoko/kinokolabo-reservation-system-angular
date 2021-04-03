@@ -78,10 +78,13 @@ export class RegisterMemberPageComponent implements OnInit {
     }
   }
 
-  get displayNameInput() { return this.form.get('displayName'); }
-  get emailInput() { return this.form.get('email'); }
-  get passwordInput() { return this.form.get('password'); }
-  get passwordConfirmInput() { return this.form.get('passwordConfirm'); }
+  get groupParent(): FormGroup { return this.form.get('parent') as FormGroup; }
+  get groupParentName(): FormGroup { return this.groupParent.get('name') as FormGroup; }
+  get groupParentNameRuby(): FormGroup { return this.groupParent.get('nameRuby') as FormGroup; }
+  get groupStudent(): FormGroup { return this.form.get('student') as FormGroup; }
+  get groupStudentName(): FormGroup { return this.groupStudent.get('name') as FormGroup; }
+  get groupStudentNameRuby(): FormGroup { return this.groupStudent.get('nameRuby') as FormGroup; }
+  get groupStudentBirthday(): FormGroup { return this.groupStudent.get('birthday') as FormGroup; }
 
   openMembershipAgreementModal() {
     this.basicModal = this.modalService.show(MembershipAgreementModalComponent, {scroll: true});
