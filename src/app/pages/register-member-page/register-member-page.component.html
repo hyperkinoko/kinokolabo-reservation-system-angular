@@ -2,14 +2,14 @@
 
 <mdb-card class="auth-card my-3 my-md-5">
   <mdb-card-header class="primary-color white-text text-center py-3">
-    <h5>会員登録</h5>
+    <h5>利用者情報登録</h5>
   </mdb-card-header>
 
   <mdb-card-body class="px-lg-5 pt-3 pt-lg-4 pb-5">
 
-    <!-- サインアップエラーメッセージ -->
-    <ng-container *ngIf="signUpErrorMessage">
-      <p class="error mb-5">{{signUpErrorMessage}}</p>
+    <!-- 利用者情報登録エラーメッセージ -->
+    <ng-container *ngIf="registerErrorMessage">
+      <p class="error mb-5">{{registerErrorMessage}}</p>
     </ng-container>
     <!-- Form -->
     <form class="text-center" [formGroup]="form" (ngSubmit)="signUp()">
@@ -291,13 +291,7 @@
         <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
       </div>
 
-      <div class="d-flex justify-content-center">
-        <mdb-checkbox formControlName="termsAccept"></mdb-checkbox>
-        <div><a (click)="openMembershipAgreementModal()" routerLink="#">利用規約</a>に同意します</div>
-      </div>
-
-
-      <!-- Sign up button -->
+      <!-- Submit button -->
       <button
         mdbBtn
         color="primary"
@@ -306,15 +300,7 @@
         mdbWavesEffect
         type="submit"
         [disabled]="form.invalid"
-      >会員登録</button>
-      <div class="d-flex justify-content-around">
-        <div>
-          <a routerLink="/login">ログイン</a></div>
-        <div>
-          <!-- Forgot password -->
-          <a routerLink="/reset-password">パスワードを忘れましたか?</a>
-        </div>
-      </div>
+      >保存</button>
     </form>
   </mdb-card-body>
 </mdb-card>
