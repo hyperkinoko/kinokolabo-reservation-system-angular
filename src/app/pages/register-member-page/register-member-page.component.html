@@ -25,10 +25,10 @@
           mdbValidate
         >
         <label for="sei">姓(申込者)</label>
-        <mdb-error *ngIf="inputParentNameSei.invalid && (.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputParentNameSei.invalid && (inputParentNameSei.dirty || inputParentNameSei.touched)">
+          <span *ngIf="inputParentNameSei.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputParentNameSei.valid && (inputParentNameSei.dirty || inputParentNameSei.touched)"></mdb-success>
       </div>
       <!-- 保護者 名 -->
       <div class="md-form">
@@ -41,10 +41,10 @@
           mdbValidate
         >
         <label for="mei">名(申込者)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputParentNameMei.invalid && (inputParentNameMei.dirty || inputParentNameMei.touched)">
+          <span *ngIf="inputParentNameMei.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputParentNameMei.valid && (inputParentNameMei.dirty || inputParentNameMei.touched)"></mdb-success>
       </div>
       <!-- 保護者 姓カナ -->
       <div class="md-form">
@@ -57,11 +57,11 @@
           mdbValidate
         >
         <label for="sei-ruby">セイ(申込者)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
-          <span *ngIf="emailInput.errors.pattern">カタカナで入力してください</span>
+        <mdb-error *ngIf="inputParentNameRubySei.invalid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)">
+          <span *ngIf="inputParentNameRubySei.errors.required">入力必須です</span>
+          <span *ngIf="inputParentNameRubySei.errors.pattern">カタカナで入力してください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputParentNameRubySei.valid && (inputParentNameRubySei.dirty || inputParentNameRubySei.touched)"></mdb-success>
       </div>
       <!-- 保護者 名カナ -->
       <div class="md-form">
@@ -74,11 +74,11 @@
           mdbValidate
         >
         <label for="mei-ruby">メイ(申込者)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
-          <span *ngIf="emailInput.errors.pattern">カタカナで入力してください</span>
+        <mdb-error *ngIf="inputParentNameRubyMei.invalid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)">
+          <span *ngIf="inputParentNameRubyMei.errors.required">入力必須です</span>
+          <span *ngIf="inputParentNameRubyMei.errors.pattern">カタカナで入力してください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputParentNameRubyMei.valid && (inputParentNameRubyMei.dirty || inputParentNameRubyMei.touched)"></mdb-success>
       </div>
       <!-- 都道府県(セレクトボックス) -->
       <div class="md-form">
@@ -91,10 +91,10 @@
           mdbValidate
         >
         <label for="prefCode">都道府県</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">都道府県を選んでください</span>
+        <mdb-error *ngIf="inputPrefCode.invalid && (inputPrefCode.dirty || inputPrefCode.touched)">
+          <span *ngIf="inputPrefCode.errors.required">都道府県を選んでください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputPrefCode.valid && (inputPrefCode.dirty || inputPrefCode.touched)"></mdb-success>
       </div>
       <!-- 電話番号 -->
       <div class="md-form">
@@ -107,11 +107,11 @@
           mdbValidate
         >
         <label for="tel">電話番号</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
-          <span *ngIf="emailInput.errors.pattern">電話番号を入力してください</span>
+        <mdb-error *ngIf="inputTel.invalid && (inputTel.dirty || inputTel.touched)">
+          <span *ngIf="inputTel.errors.required">入力必須です</span>
+          <span *ngIf="inputTel.errors.pattern">電話番号を入力してください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputTel.valid && (inputTel.dirty || inputTel.touched)"></mdb-success>
       </div>
       <!-- 受講生が申込者本人(チェックボックス) -->
       <div class="md-form">
@@ -139,10 +139,10 @@
           mdbValidate
         >
         <label for="st-sei">姓(受講生)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputStudentNameSei.invalid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)">
+          <span *ngIf="inputStudentNameSei.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentNameSei.valid && (inputStudentNameSei.dirty || inputStudentNameSei.touched)"></mdb-success>
       </div>
       <!-- 受講生 名 -->
       <div class="md-form">
@@ -155,10 +155,10 @@
           mdbValidate
         >
         <label for="st-mei">名(受講生)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputStudentNameMei.invalid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)">
+          <span *ngIf="inputStudentNameMei.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentNameMei.valid && (inputStudentNameMei.dirty || inputStudentNameMei.touched)"></mdb-success>
       </div>
       <!-- 受講生 姓カナ -->
       <div class="md-form">
@@ -171,11 +171,11 @@
           mdbValidate
         >
         <label for="st-sei-ruby">セイ(受講生)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
-          <span *ngIf="emailInput.errors.pattern">カタカナで入力してください</span>
+        <mdb-error *ngIf="inputStudentNameRubySei.invalid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)">
+          <span *ngIf="inputStudentNameRubySei.errors.required">入力必須です</span>
+          <span *ngIf="inputStudentNameRubySei.errors.pattern">カタカナで入力してください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentNameRubySei.valid && (inputStudentNameRubySei.dirty || inputStudentNameRubySei.touched)"></mdb-success>
       </div>
       <!-- 受講生 名カナ -->
       <div class="md-form">
@@ -188,11 +188,11 @@
           mdbValidate
         >
         <label for="st-mei-ruby">メイ(受講生)</label>
-        <mdb-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-          <span *ngIf="emailInput.errors.required">入力必須です</span>
-          <span *ngIf="emailInput.errors.pattern">カタカナで入力してください</span>
+        <mdb-error *ngIf="inputStudentNameRubyMei.invalid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)">
+          <span *ngIf="inputStudentNameRubyMei.errors.required">入力必須です</span>
+          <span *ngIf="inputStudentNameRubyMei.errors.pattern">カタカナで入力してください</span>
         </mdb-error>
-        <mdb-success *ngIf="emailInput.valid && (emailInput.dirty || emailInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentNameRubyMei.valid && (inputStudentNameRubyMei.dirty || inputStudentNameRubyMei.touched)"></mdb-success>
       </div>
       <!-- 生年月日 年 -->
       <div class="md-form">
@@ -205,10 +205,10 @@
           mdbValidate
         >
         <label for="bd-year">年</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputStudentBirthdayYear.invalid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)">
+          <span *ngIf="inputStudentBirthdayYear.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentBirthdayYear.valid && (inputStudentBirthdayYear.dirty || inputStudentBirthdayYear.touched)"></mdb-success>
       </div>
       <!-- 生年月日 月 -->
       <div class="md-form">
@@ -221,10 +221,10 @@
           mdbValidate
         >
         <label for="bd-month">月</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputStudentBirthdayMonth.invalid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)">
+          <span *ngIf="inputStudentBirthdayMonth.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentBirthdayMonth.valid && (inputStudentBirthdayMonth.dirty || inputStudentBirthdayMonth.touched)"></mdb-success>
       </div>
       <!-- 生年月日 日 -->
       <div class="md-form">
@@ -237,10 +237,10 @@
           mdbValidate
         >
         <label for="bd-day">日</label>
-        <mdb-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <span *ngIf="passwordInput.errors.required">入力必須です</span>
+        <mdb-error *ngIf="inputStudentBirthdayDay.invalid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)">
+          <span *ngIf="inputStudentBirthdayDay.errors.required">入力必須です</span>
         </mdb-error>
-        <mdb-success *ngIf="passwordInput.valid && (passwordInput.dirty || passwordInput.touched)"></mdb-success>
+        <mdb-success *ngIf="inputStudentBirthdayDay.valid && (inputStudentBirthdayDay.dirty || inputStudentBirthdayDay.touched)"></mdb-success>
       </div>
       <!-- アポロン -->
       <div class="md-form">
